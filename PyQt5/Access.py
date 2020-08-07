@@ -10,6 +10,7 @@
 #pyuic5 -x Access.ui -o Access.py
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+#from PIN import Welcome
 
 def NtoM(num):
     if(num < 0):
@@ -27,7 +28,8 @@ def NtoM(num):
     return p + M
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow, parent):
+
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(250, 339)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -63,7 +65,7 @@ class Ui_MainWindow(object):
         self.Button_9.setGeometry(QtCore.QRect(90, 210, 41, 41))
         self.Button_9.setObjectName("Button_9")
         self.Backspace = QtWidgets.QPushButton(self.centralwidget)
-        self.Backspace.setGeometry(QtCore.QRect(130, 170, 41, 41))
+        self.Backspace.setGeometry(QtCore.QRect(130, 130, 41, 41))
         self.Backspace.setObjectName("Backspace")
         self.Enter = QtWidgets.QPushButton(self.centralwidget)
         self.Enter.setGeometry(QtCore.QRect(50, 250, 81, 41))
@@ -77,6 +79,9 @@ class Ui_MainWindow(object):
         self.Withdraw = QtWidgets.QPushButton(self.centralwidget)
         self.Withdraw.setGeometry(QtCore.QRect(130, 210, 81, 41))
         self.Withdraw.setObjectName("Withdraw")
+        self.Exit = QtWidgets.QPushButton(self.centralwidget)
+        self.Exit.setGeometry(QtCore.QRect(130, 170, 81, 41))
+        self.Exit.setObjectName("Exit")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(20, 0, 71, 51))
         self.label.setObjectName("label")
@@ -110,6 +115,8 @@ class Ui_MainWindow(object):
         self.textEdit_2.setPlainText(self.string)
         self.textEdit_3.setPlainText(self.string)
         self.string = ""
+        self.parent = parent
+        self.MainWindow = MainWindow
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -148,6 +155,8 @@ class Ui_MainWindow(object):
         self.Deposit.clicked.connect(self.deposit)
         self.Withdraw.setText(_translate("MainWindow", "Withdraw"))
         self.Withdraw.clicked.connect(self.withdraw)
+        self.Exit.setText(_translate("MainWindow", "Exit"))
+        self.Exit.clicked.connect(self.exit)
 
         self.label.setText(_translate("MainWindow", "Available\n"
 " Balance:"))
@@ -198,8 +207,12 @@ class Ui_MainWindow(object):
         if(self.change > 0):
             self.string = "-" + self.string
             self.textEdit.setPlainText(self.string)
-            self.textEdit_3.setPlainText(NtoM(self.balance + self.change))
             self.change *= -1
+            self.textEdit_3.setPlainText(NtoM(self.balance + self.change))
+
+    def exit(self):
+        self.parent.show()
+        self.MainWindow.hide()
 
 if __name__ == "__main__":
     import sys

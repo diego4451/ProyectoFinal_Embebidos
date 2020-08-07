@@ -10,9 +10,16 @@
 #pyuic5 -x PIN.ui -o PIN.py
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Access import Ui_MainWindow
 
+class Welcome(object):
+    def openWindow(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window, self.MainWindow)
+        MainWindow.hide()
+        self.window.show()
 
-class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(207, 294)
@@ -70,6 +77,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.string = ""
+        self.MainWindow = MainWindow
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -115,13 +123,14 @@ class Ui_MainWindow(object):
     def Enter(self):
         self.string  = "Enter PIN here"
         self.textEdit.setPlainText(self.string)
+        self.openWindow()
         
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Welcome()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
