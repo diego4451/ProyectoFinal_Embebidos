@@ -133,7 +133,7 @@ def manage_image_opr(frame, hand_hist):
         far_point = farthest_point(defects, max_cont, cnt_centroid)
         print("Centroid : " + str(cnt_centroid) + ", farthest Point : " + str(far_point))
         cv2.circle(frame, far_point, 5, [0, 0, 255], -1)
-        if len(traverse_point) < 20:
+        if len(traverse_point) < 1:
             traverse_point.append(far_point)
         else:
             traverse_point.pop(0)
