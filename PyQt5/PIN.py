@@ -9,6 +9,8 @@
 
 #pyuic5 -x PIN.ui -o PIN.py
 
+import sys
+import pyautogui as gui
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Access import Ui_MainWindow
 
@@ -21,48 +23,60 @@ class Welcome(object):
         self.window.show()
 
     def setupUi(self, MainWindow):
+        width, height = gui.size()
+        winW = 500
+        winH = 500
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(207, 294)
+        MainWindow.resize(winW, winH)
+        MainWindow.move((width-winW)//2, (height-winH)//2)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(0, 0, winW, winH))
+        self.label.setPixmap(QtGui.QPixmap("Images/Green.png"))
+        self.label.setScaledContents(True)
+
+        winW = winW//2 - 90
+        winH = winH//2 - 110
         self.Button_1 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_1.setGeometry(QtCore.QRect(20, 70, 41, 41))
+        self.Button_1.setGeometry(QtCore.QRect(winW+20, winH+70, 41, 41))
         self.Button_1.setObjectName("Button")
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(20, 40, 161, 31))
+        self.textEdit.setGeometry(QtCore.QRect(winW+20, winH+40, 161, 31))
         self.textEdit.setObjectName("textEdit")
         self.Button_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_2.setGeometry(QtCore.QRect(60, 70, 41, 41))
+        self.Button_2.setGeometry(QtCore.QRect(winW+60, winH+70, 41, 41))
         self.Button_2.setObjectName("Button_2")
         self.Button_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_3.setGeometry(QtCore.QRect(100, 70, 41, 41))
+        self.Button_3.setGeometry(QtCore.QRect(winW+100, winH+70, 41, 41))
         self.Button_3.setObjectName("Button_3")
         self.Button_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_4.setGeometry(QtCore.QRect(20, 110, 41, 41))
+        self.Button_4.setGeometry(QtCore.QRect(winW+20, winH+110, 41, 41))
         self.Button_4.setObjectName("Button_4")
         self.Button_5 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_5.setGeometry(QtCore.QRect(60, 110, 41, 41))
+        self.Button_5.setGeometry(QtCore.QRect(winW+60, winH+110, 41, 41))
         self.Button_5.setObjectName("Button_5")
         self.Button_6 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_6.setGeometry(QtCore.QRect(100, 110, 41, 41))
+        self.Button_6.setGeometry(QtCore.QRect(winW+100, winH+110, 41, 41))
         self.Button_6.setObjectName("Button_6")
         self.Button_7 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_7.setGeometry(QtCore.QRect(20, 150, 41, 41))
+        self.Button_7.setGeometry(QtCore.QRect(winW+20, winH+150, 41, 41))
         self.Button_7.setObjectName("Button_7")
         self.Button_8 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_8.setGeometry(QtCore.QRect(60, 150, 41, 41))
+        self.Button_8.setGeometry(QtCore.QRect(winW+60, winH+150, 41, 41))
         self.Button_8.setObjectName("Button_8")
         self.Button_9 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_9.setGeometry(QtCore.QRect(100, 150, 41, 41))
+        self.Button_9.setGeometry(QtCore.QRect(winW+100, winH+150, 41, 41))
         self.Button_9.setObjectName("Button_9")
         self.Button_10 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_10.setGeometry(QtCore.QRect(140, 70, 41, 41))
+        self.Button_10.setGeometry(QtCore.QRect(winW+140, winH+70, 41, 41))
         self.Button_10.setObjectName("Button_10")
         self.Button_11 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_11.setGeometry(QtCore.QRect(60, 190, 81, 41))
+        self.Button_11.setGeometry(QtCore.QRect(winW+60, winH+190, 81, 41))
         self.Button_11.setObjectName("Button_11")
         self.Button_0 = QtWidgets.QPushButton(self.centralwidget)
-        self.Button_0.setGeometry(QtCore.QRect(20, 190, 41, 41))
+        self.Button_0.setGeometry(QtCore.QRect(winW+20, winH+190, 41, 41))
         self.Button_0.setObjectName("Button_12")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
