@@ -10,7 +10,7 @@
 #pyuic5 -x PIN.ui -o PIN.py
 
 import sys
-import pyautogui as gui
+import mouse
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Access import Ui_MainWindow
 
@@ -23,7 +23,8 @@ class Welcome(object):
         self.window.show()
 
     def setupUi(self, MainWindow):
-        width, height = gui.size()
+        width = 1300
+        height = 768
         winW = 500
         winH = 500
         MainWindow.setObjectName("MainWindow")
