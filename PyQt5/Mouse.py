@@ -1,10 +1,12 @@
 import sys
-import pyautogui as gui
+import mouse
 from PyQt5.QtWidgets import (QApplication, QWidget)
 from PyQt5.Qt import Qt
 from PyQt5 import QtWidgets, QtCore
+from PySide2.QtCore import QTimer
 
-width, height = gui.size()
+width = 1300
+height = 768
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -25,6 +27,13 @@ class MainWindow(QWidget):
         self.Button_3.setGeometry(QtCore.QRect(60, 70, 30, 30))
         self.Button_3.setText("3")
 
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(lambda: self.update(self.t))
+        self.timer.start(1000)
+
+        self.t1 = 0
+        self.t2 = 0
+
     def keyPressEvent(self, event):
         if(event.key() == 49):
             gui.moveTo(width/2 - 40, height/2 - 10)
@@ -32,6 +41,13 @@ class MainWindow(QWidget):
             gui.moveTo(width/2 + 20, height/2 - 10)
         elif(event.key() == 51):
             gui.moveTo(width/2 - 10, height/2 + 40)
+
+    def update():
+        self.t1 += 1
+        a = self.t1%2 
+        if(a == 0):
+            self.t2 += 1
+        mouse.move(400+800*a, 200+400*(self.t2%2))
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
