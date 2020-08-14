@@ -20,7 +20,7 @@ def rescale_frame(frame, wpercent=130, hpercent=130):
 def contours(hist_mask_image):
     gray_hist_mask_image = cv2.cvtColor(hist_mask_image, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(gray_hist_mask_image, 0, 255, 0)
-    _, cont, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    cont, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     return cont
 
 def draw_rect(frame):
@@ -68,9 +68,9 @@ def hist_masking(frame, hist):
     disc = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (31, 31))
     cv2.filter2D(dst, -1, disc, dst)
 
-    ret, thresh = cv2.threshold(dst, 150, 255, cv2.THRESH_BINARY)
+    ret, thresh = cv2.threshold(dst, 150, 255, cv2.THRESH_BINARY) #ret, thresh = cv2.threshold(dst, 150, 255, cv2.THRESH_BINARY)
 
-    # thresh = cv2.dilate(thresh, None, iterations=5)
+    #thresh = cv2.dilate(thresh, None, iterations=5)
 
     thresh = cv2.merge((thresh, thresh, thresh))
 
@@ -86,7 +86,7 @@ def centroid(max_contour):
     else:
         return None
 
-
+"""
 def farthest_point(defects, contour, centroid):
     if defects is not None and centroid is not None:
         s = defects[:, 0][:, 0]
@@ -107,12 +107,12 @@ def farthest_point(defects, contour, centroid):
             return farthest_point
         else:
             return None
-
+"""
 
 def draw_circles(frame, traverse_point):
     if traverse_point is not None:
         for i in range(len(traverse_point)):
-            cv2.circle(frame, traverse_point[i], int(5 - (5 * i * 3) / 100), [0, 255, 255], -1)
+            cv2.circle(frame, traverse_point[i], 5, [0, 255, 255], -1)
 
 
 def manage_image_opr(frame, hand_hist):
@@ -130,16 +130,16 @@ def manage_image_opr(frame, hand_hist):
     if max_cont is not None:
         hull = cv2.convexHull(max_cont, returnPoints=False)
         defects = cv2.convexityDefects(max_cont, hull)
-        far_point = farthest_point(defects, max_cont, cnt_centroid)
-        print("Centroid : " + str(cnt_centroid) + ", farthest Point : " + str(far_point))
-        cv2.circle(frame, far_point, 5, [0, 0, 255], -1)
-        if len(traverse_point) < 1:
-            traverse_point.append(far_point)
-        else:
-            traverse_point.pop(0)
-            traverse_point.append(far_point)
+        #far_point = farthest_point(defects, max_cont, cnt_centroid)
+        print("Centroid : " + str(cnt_centroid)) #+ ", farthest Point : " + str(far_point))
+        #cv2.circle(frame, far_point, 5, [0, 0, 255], -1)
+        #if len(traverse_point) < 1:
+        #    traverse_point.append(far_point)
+        #else:
+        #    traverse_point.pop(0)
+        #    traverse_point.append(far_point)
 
-        draw_circles(frame, traverse_point)
+        #draw_circles(frame, traverse_point)
 
 
 def main():
@@ -148,7 +148,7 @@ def main():
     capture = cv2.VideoCapture(0)
 
     while capture.isOpened():
-        pressed_key = cv2.waitKey(1)
+        pressed_key = cv2.waitKey(42)
         _, frame = capture.read()
         frame = cv2.flip(frame, 1)
 
@@ -161,8 +161,9 @@ def main():
 
         else:
             frame = draw_rect(frame)
-
-        cv2.imshow("Live Feed", rescale_frame(frame))
+        imagen1=rescale_frame(frame)
+        cv2.imshow("Live Feed", imagen1)
+        cv2.imwrite("imagen.jpg", imagen1)
 
         if pressed_key == 27:
             break
