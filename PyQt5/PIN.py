@@ -10,7 +10,7 @@
 #pyuic5 -x PIN.ui -o PIN.py
 
 import sys
-import mouse
+import os
 import cv2
 import numpy as np
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -110,7 +110,12 @@ def manage_image_opr(frame, hand_hist):
     cnt_centroid = centroid(max_cont)
 
     cv2.circle(frame, cnt_centroid, 5, [255, 0, 255], -1)
-    mouse.move(cnt_centroid[0]*2.84, (cnt_centroid[1]-320)*7)
+    x = cnt_centroid[0]*2.84
+    y = (cnt_centroid[1]-320)*7
+    command = 'xdotool mousemove ' + str(x) + ' ' + str(y)
+    print (x)
+    print (y)
+    os.system(command)
 
     if max_cont is not None:
         hull = cv2.convexHull(max_cont, returnPoints=False)
