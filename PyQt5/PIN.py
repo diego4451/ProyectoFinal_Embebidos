@@ -118,15 +118,14 @@ def manage_image_opr(frame, hand_hist):
 
 def tracking(hand_hist):
 
-    capture = cv2.VideoCapture(0)
+    #capture = cv2.VideoCapture(0)
 
-    pressed_key = cv2.waitKey(42)
     _, frame = capture.read()
     frame = cv2.flip(frame, 1)
 
     manage_image_opr(frame, hand_hist)
 
-    capture.release()
+    return
 
 def cal():
 
@@ -140,8 +139,7 @@ def cal():
     hand_rect_two_x = None
     hand_rect_two_y = None
 
-    capture = cv2.VideoCapture(0)
-
+    #capture = cv2.VideoCapture(0)
     while capture.isOpened():
         pressed_key = cv2.waitKey(42)
         _, frame = capture.read()
@@ -150,7 +148,7 @@ def cal():
         if pressed_key & 0xFF == ord('z'):
             hand_hist = hand_histogram(frame)
             cv2.destroyAllWindows()
-            capture.release()
+            #capture.release()
             return hand_hist
         else:
             frame = draw_rect(frame)
@@ -238,6 +236,14 @@ class Welcome(object):
         self.string = ""
         self.MainWindow = MainWindow
 
+        self.hand_hist=cal()
+        self.timer = QtCore.QTimer(self.centralwidget)
+        self.timer.timeout.connect(self.update)
+        self.timer.start(42)
+
+    def update(self):
+        tracking(self.hand_hist)
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "My Awesome Window"))
@@ -287,18 +293,10 @@ class Welcome(object):
 
 if __name__ == "__main__":
     import sys
-    global hand_hist
-    hand_hist=cal()
-
+    capture = cv2.VideoCapture(0)
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Welcome()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    while True:
-        pressed_key = cv2.waitKey(42)
-        tracking(hand_hist)
-        if pressed_key == 27:
-            break
-    print("A")
     sys.exit(app.exec_())
