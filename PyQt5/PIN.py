@@ -10,15 +10,13 @@
 #pyuic5 -x PIN.ui -o PIN.py
 
 import sys
-<<<<<<< HEAD
 import mouse
-=======
-import pyautogui as gui
 import cv2
 import numpy as np
->>>>>>> f06f3551ef48ddf65599937915ee452b781d9a30
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Access import Ui_MainWindow
+
+
 
 def rescale_frame(frame, wpercent=130, hpercent=130):
     width = int(frame.shape[1] * wpercent / 100)
@@ -110,13 +108,13 @@ def manage_image_opr(frame, hand_hist):
     max_cont = max(contour_list, key=cv2.contourArea)
 
     cnt_centroid = centroid(max_cont)
+
     cv2.circle(frame, cnt_centroid, 5, [255, 0, 255], -1)
+    mouse.move(cnt_centroid[0]*2.84, (cnt_centroid[1]-320)*7)
 
     if max_cont is not None:
         hull = cv2.convexHull(max_cont, returnPoints=False)
         defects = cv2.convexityDefects(max_cont, hull)
-        #far_point = farthest_point(defects, max_cont, cnt_centroid)
-        print("Centroid : " + str(cnt_centroid))
 
 def tracking(hand_hist):
 
@@ -134,6 +132,7 @@ def cal():
 
     hand_hist = None
     traverse_point = []
+    global total_rectangle
     total_rectangle = 9
     hand_rect_one_x = None
     hand_rect_one_y = None
@@ -141,7 +140,6 @@ def cal():
     hand_rect_two_x = None
     hand_rect_two_y = None
 
-    global hand_hist
     capture = cv2.VideoCapture(0)
 
     while capture.isOpened():
@@ -289,11 +287,18 @@ class Welcome(object):
 
 if __name__ == "__main__":
     import sys
-    cal()
-    
+    global hand_hist
+    hand_hist=cal()
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Welcome()
     ui.setupUi(MainWindow)
     MainWindow.show()
+    while True:
+        pressed_key = cv2.waitKey(42)
+        tracking(hand_hist)
+        if pressed_key == 27:
+            break
+    print("A")
     sys.exit(app.exec_())
