@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
-    <height>339</height>
+    <width>1024</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>41</width>
-      <height>41</height>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -30,9 +30,9 @@
    <widget class="QTextEdit" name="textEdit">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>150</x>
       <y>50</y>
-      <width>141</width>
+      <width>864</width>
       <height>31</height>
      </rect>
     </property>
@@ -47,10 +47,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>260</x>
       <y>130</y>
-      <width>41</width>
-      <height>41</height>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -60,10 +60,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>510</x>
       <y>130</y>
-      <width>41</width>
-      <height>41</height>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -74,9 +74,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>170</y>
-      <width>41</width>
-      <height>41</height>
+      <y>260</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -86,10 +86,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_5">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>170</y>
-      <width>41</width>
-      <height>41</height>
+      <x>260</x>
+      <y>260</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -99,10 +99,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_6">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>170</y>
-      <width>41</width>
-      <height>41</height>
+      <x>510</x>
+      <y>260</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -113,9 +113,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>210</y>
-      <width>41</width>
-      <height>41</height>
+      <y>390</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -125,10 +125,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_8">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>210</y>
-      <width>41</width>
-      <height>41</height>
+      <x>260</x>
+      <y>390</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -138,10 +138,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Button_9">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>210</y>
-      <width>41</width>
-      <height>41</height>
+      <x>510</x>
+      <y>390</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -151,10 +151,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Backspace">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>170</y>
-      <width>41</width>
-      <height>41</height>
+      <x>760</x>
+      <y>130</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -164,10 +164,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Enter">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>250</y>
-      <width>81</width>
-      <height>41</height>
+      <x>260</x>
+      <y>520</y>
+      <width>500</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -178,9 +178,9 @@ p, li { white-space: pre-wrap; }
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
-      <width>41</width>
-      <height>41</height>
+      <y>520</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -190,10 +190,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Deposit">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>250</y>
-      <width>81</width>
-      <height>41</height>
+      <x>760</x>
+      <y>520</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -203,10 +203,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="Withdraw">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>210</y>
-      <width>81</width>
-      <height>41</height>
+      <x>760</x>
+      <y>390</y>
+      <width>250</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
@@ -218,21 +218,20 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>20</x>
       <y>0</y>
-      <width>71</width>
+      <width>120</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Available
- Balance:</string>
+     <string>Available Balance:</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>150</x>
       <y>10</y>
-      <width>141</width>
+      <width>864</width>
       <height>31</height>
      </rect>
     </property>
@@ -247,9 +246,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QTextEdit" name="textEdit_3">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>150</x>
       <y>90</y>
-      <width>141</width>
+      <width>864</width>
       <height>31</height>
      </rect>
     </property>
@@ -266,7 +265,7 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>20</x>
       <y>40</y>
-      <width>71</width>
+      <width>120</width>
       <height>51</height>
      </rect>
     </property>
@@ -279,13 +278,25 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>20</x>
       <y>80</y>
-      <width>71</width>
+      <width>120</width>
       <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Remaining
-Balance:</string>
+     <string>Remaining Balance:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Exit">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>260</y>
+      <width>250</width>
+      <height>130</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
     </property>
    </widget>
   </widget>
@@ -294,7 +305,7 @@ Balance:</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>250</width>
+     <width>1024</width>
      <height>20</height>
     </rect>
    </property>
