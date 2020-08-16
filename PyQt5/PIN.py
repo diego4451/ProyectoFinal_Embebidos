@@ -221,11 +221,11 @@ class Welcome(object):
         self.string = ""
         self.MainWindow = MainWindow
 
-#        self.capture = cv2.VideoCapture(0)
-#        self.hand_hist=cal(self.capture)
-#        self.timer = QtCore.QTimer(self.centralwidget)
-#        self.timer.timeout.connect(self.update)
-#        self.timer.start(42)
+        self.capture = cv2.VideoCapture(0)
+        self.hand_hist=cal(self.capture)
+        self.timer = QtCore.QTimer(self.centralwidget)
+        self.timer.timeout.connect(self.update)
+        self.timer.start(42)
 
     def update(self):
         tracking(self.hand_hist, self.capture)
