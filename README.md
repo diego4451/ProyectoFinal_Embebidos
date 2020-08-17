@@ -8,7 +8,8 @@
   El sistema se inicia con una pantalla que muestra 9 cuadros verdes, eston son usados para la calibracion creando un histograma con los colores detectados,
   posteriormente el codigo encuentra el centroide del histograma creado y se procede a realizar un seguimiento de este centroide, todo esto utilizando OpenCV.
   Ademas del seguimiento del centroide se obtienen las coordenadas de este en todo momento y con estas se procede a generar eventos de mouse, especificamente 
-  mover el cursor, detras de todo esto se encuentra una interfaz simple a modo de ejemplo para que la demostración del sistema sea más ilustrativa.
+  mover el cursor, detras de todo esto se encuentra una interfaz simple a modo de ejemplo para que la demostración del sistema sea más ilustrativo.
+  La integracion de los codigos y receta final se encuentran dentro de la carpeta PyQt5 en el archivo PIN.py
   
 # Modo de uso
   1) Coloque el dedo en los cuadros verdes que se encuentran en la pantalla
